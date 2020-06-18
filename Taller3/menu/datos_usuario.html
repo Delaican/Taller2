@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos Usuario</title>
+    <style>
+        .block{
+            display: block;
+        }      
+    </style>
+</head>
+<body>
+    <form action="#">
+        <legend>Rellena tu CV</legend>
+
+        <label for="name" class="block">Nombre</label>
+        <input type="text" id="name" >
+
+        <label for="lastname" class="block">Apellidos</label>
+        <input type="text" id="lastname">
+
+        <label for="password" class="block">Contraseña</label>
+        <input type="password" id="password">
+
+        <label for="confirm_password" class="block">Confirme Contraseña</label>
+        <input type="password" id="confirm_password">
+
+        <label class="block">Identificación</label>
+        <select>
+            <option value="TI">TI</option>
+            <option value="CC">CC</option>
+        </select>
+        <input type="text">
+
+        <label class="block">Sexo</label>
+        <div class="block">
+        <input type="radio" id="man" name="sex">
+        <label for="man">Hombre</label>
+        </div>
+        <div class="block">
+        <input type="radio" id="woman" name="sex">
+        <label for="woman">Mujer</label>
+        </div>
+
+        <label class="block">Incluir mi foto</label>
+        <input type="file">
+
+        <div class="block">
+        <input type="checkbox" id="student">
+        <label for="student">Estudiante...</label>
+        </div>
+        
+        <fieldset>
+            <legend>Datos personales</legend>
+        </fieldset>
+    
+        
+    </form>
+</body>
+</html>
