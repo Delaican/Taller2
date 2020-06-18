@@ -53,9 +53,29 @@
         
         <fieldset>
             <legend>Datos personales</legend>
+
+            <label class="block" for="department">Departamento</label>
+            <select name="department" id="department">
+                <option value="selecciona">- selecciona -</option>
+                <option value="santander">Santander</option>
+                <option value="cundinamarca">Cundinamarca</option>
+                <option value="choco">Chocó</option>
+            </select>
+
+            <label class="block" for="born-date">Fecha de nacimiento</label>
+            <input type="date" id="born-date">
+
+            <label class="block" for="topics">Temas de interés</label>
+            <select name="topics" id="topics" multiple>
+                <option value="db">Administración de bases de datos</option>
+                <option value="programacion">Análisis y programación</option>
+                <option value="arquitectura">Arquitectura</option>
+                <option value="calidad">Calidad</option>
+                <option value="business">ERP, CRM, Business Intelligence</option>
+            </select>
         </fieldset>
-    
-        
+        <input type="submit" value="Guardar cambios">
+        <input type="reset" value="Borrar los datos introducidos">
     </form>
 </body>
 </html>
