@@ -7,7 +7,10 @@
     <style>
         .block{
             display: block;
-        }      
+        }     
+        .student-data{
+            width: 400px;
+        } 
     </style>
 </head>
 <body>
@@ -34,11 +37,11 @@
         <input type="text">
 
         <label class="block">Sexo</label>
-        <div class="block">
+        <div>
         <input type="radio" id="man" name="sex">
         <label for="man">Hombre</label>
         </div>
-        <div class="block">
+        <div>
         <input type="radio" id="woman" name="sex">
         <label for="woman">Mujer</label>
         </div>
@@ -46,12 +49,12 @@
         <label class="block">Incluir mi foto</label>
         <input type="file">
 
-        <div class="block">
+        <div>
         <input type="checkbox" id="student">
         <label for="student">Estudiante...</label>
         </div>
         
-        <fieldset>
+        <fieldset class="student-data">
             <legend>Datos personales</legend>
 
             <label class="block" for="department">Departamento</label>
