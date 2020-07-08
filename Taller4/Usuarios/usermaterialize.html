@@ -1,50 +1,52 @@
 <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <!-- Required meta tags -->
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+<html lang="en">
 
-      <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <title>Usuarios - Materialize</title>
-    </head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <body>
-      <h1>Registro de Usuarios</h1>
-      <form action="#">
-          <label for="id_usr">Documento de Identidad</label>
-          <input type="text" id="id_usr" minlength="10" maxlength="10">
-          <label for="id_paises">Id País</label>
-          <select name="id_paises" id="id_paises">
-              <option value="111">111</option>
-              <option value="222">222</option>
-              <option value="333">333</option>
-              <option value="444">444</option>
-              <option value="555">555</option>
-          </select>
-          <label for="nombre">Nombre</label>
-          <input type="text" id="nombre" maxlength="25">
-          <label for="apellido">Apellido</label>
-          <input type="text" id="apellido" maxlength="25">
-          <label for="direccion">Dirección</label>
-          <input type="text" id="direccion" maxlength="45">
-          <label for="ccusuario">Nombre de Usuario</label>
-          <input type="text" id="ccusuario" maxlength="20">
-          <label for="ccpaswd">Contraseña</label>
-          <input type="password" id="ccpaswd">
-          <label for="email">Email</label>
-          <input type="email" id="email">
-          <label for="telefono">Teléfono</label>
-          <input type="tel" id="telefono">
-          <input type="submit" value="Registrarme">
-      </form>
-        
-      <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
-    </body>
-  </html>
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css" media="screen,projection" />
+
+  <title>Usuarios - Materialize</title>
+</head>
+
+<body>
+  <h1>Registro de Usuario</h1>
+  <form action="#">
+    <label for="id_usr">Documento de Identidad</label>
+    <input type="number" id="id_usr" minlength="10" maxlength="10">
+    <label for="id_paises">Id País</label>
+    <select name="id_paises" id="id_paises">
+      <option value="111">111</option>
+      <option value="222">222</option>
+      <option value="333">333</option>
+      <option value="444">444</option>
+      <option value="555">555</option>
+    </select>
+    <label for="nombre">Nombre</label>
+    <input type="text" id="nombre" maxlength="25">
+    <label for="apellido">Apellido</label>
+    <input type="text" id="apellido" maxlength="25">
+    <label for="direccion">Dirección</label>
+    <input type="text" id="direccion" maxlength="45">
+    <label for="ccusuario">Nombre de Usuario</label>
+    <input type="text" id="ccusuario" maxlength="20">
+    <label for="ccpaswd">Contraseña</label>
+    <input type="password" id="ccpaswd">
+    <label for="email">Email</label>
+    <input type="email" id="email">
+    <label for="telefono">Teléfono</label>
+    <input type="tel" id="telefono">
+    <input type="submit" value="Registrarme">
+  </form>
+
+  <!--JavaScript at end of body for optimized loading-->
+  <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
+</body>
+
+</html>
