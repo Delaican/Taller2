@@ -1,9 +1,9 @@
 .title {
-
+   color: rgb(126, 79, 79);
 }
 
 .form {
-   
+   background-color: red;
 }
 .form__label {
 
