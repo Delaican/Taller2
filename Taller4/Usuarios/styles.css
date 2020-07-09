@@ -1,11 +1,14 @@
 body {
    font-family: "Cambria", "Cochin", Georgia, Times, 'Times New Roman', serif;
+   font-size: 16px;
 }
 .title {
    color: #2F4F4F;
+   font-size: 2.5em;
+   margin-left:10px;
 }
 .box {
-   width: 95%;
+   width: 50%;
 }
 .form {
    /* /* background-color: #F0F8FF; */
@@ -14,6 +17,8 @@ body {
    padding: 1rem;
    position: relative;
    color: #2F4F4F;
+   font-size: 1.2em;
+   border: 1px solid purple;
   
 }
 
@@ -35,10 +40,11 @@ body {
 .form__input {
    margin-bottom: 2rem;
    border-bottom: 1px solid #2F4F4F;
+
 }
 .form__select {
    position: absolute;
-   left: 70px;
+   left: 80px;
    border-radius: 10px;
 }
 
