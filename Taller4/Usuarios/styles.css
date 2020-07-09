@@ -5,11 +5,11 @@ body {
    color: #2F4F4F;
 }
 .box {
-   width: 50%;
+   width: 95%;
 }
 .form {
-   background-color: #F0F8FF;
-   border-radius: 15px;
+   /* /* background-color: #F0F8FF; */
+   border-radius: 15px; 
    width: 100%;
    padding: 1rem;
    position: relative;
@@ -48,8 +48,8 @@ body {
    border: none;
    cursor: pointer;
    border-radius: 0.25rem;
-   color: #2F4F4F;
-   background-color: #ADD8E6;
+   color: #F8F8FF;
+   background-color: #1E90FF;
    transition: transform 0.2s;
 }
 
