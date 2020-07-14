@@ -48,12 +48,19 @@ body {
     transform: scale(0.9);
  }
 
-.col-lg-6 {
+.col-lg-6, .col-lg-2 {
     float: left;
-    width: 50%;
-    
 }
 
+.col-lg-6 {
+    width: 50%;
+}
+.col-lg-2 {
+    width: 16.66%;
+}
 .row {
     width: 98%;
 }
+
+
+

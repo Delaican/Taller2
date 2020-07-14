@@ -23,7 +23,7 @@
 
         </div>
 
-        <div class="container">
+        <div class="form__field">
             <div class="row">
                 <div class="col-lg-6">
                     <label for="nombre" class="form__label">Nombre: </label>
@@ -67,6 +67,19 @@
             <input type="tel" id="telefono" class="form__input">
         </div>
 
+        <div class="form__field">
+            <label for="gustos">¿Deseas registrar tus gustos?</label>
+            <div class="row">
+                <div class="col-lg-2">
+                    <label for="si" name="gustos" class="form__label">Sí</label>
+                    <input type="radio" id="si" name="gustos">
+                </div>
+                <div class="col-lg-2">
+                    <label for="no" class="form__label">No</label>
+                    <input type="radio" id="no" name="gustos" checked>
+                </div>
+            </div>
+        </div>
         <input type="submit" value="Registrarme" class="form__submit">
 
     </form>
