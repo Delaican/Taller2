@@ -68,10 +68,10 @@
         </div>
 
         <div class="form__field">
-            <label for="gustos">¿Deseas registrar tus gustos?</label>
+            <label class="form__label">¿Deseas registrar tus gustos?</label>
             <div class="row">
                 <div class="col-lg-2">
-                    <label for="si" name="gustos" class="form__label">Sí</label>
+                    <label for="si" class="form__label">Sí</label>
                     <input type="radio" id="si" name="gustos">
                 </div>
                 <div class="col-lg-2">
@@ -81,45 +81,47 @@
             </div>
         </div>
 
-        <div class="form__field">
-            <label for="color" class="form__label">Color favorito: </label>
-            <input type="color" class="form__input" id="color" disabled>
+        <div class="gustos_personales">
+            <div class="form__field">
+                <label for="color" class="form__label">Color favorito: </label>
+                <input type="color" class="form__input" id="color" disabled>
+            </div>
+
+            <div class="form__field">
+                <label for="marcas" class="form__label">Marca de carro favorita: </label>
+                <select disabled name="marcas" id="marcas" class="form__select">
+                    <option value="" selected disabled>Seleccione una opción</option>
+                    <option value="mazda">Mazda</option>
+                    <option value="chevrolet">Chevrolet</option>
+                    <option value="mercedes_benz">Mercedes Benz</option>
+                    <option value="audi">Audi</option>
+                    <option value="renault">Renault</option>
+                </select>
+            </div>
+
+            <div class="form__field">
+                <label for="estilo" class="form__label">Estilo favorito de carro: </label>
+                <select disabled name="estilo" id="estilo" class="form__select">
+                    <option value="" selected disabled>Seleccione una opción</option>
+                    <option value="deportivo">Deportivo</option>
+                    <option value="descapotable">Descapotable</option>
+                    <option value="todoterreno">Todoterreno</option>
+                    <option value="cupe">Cupé</option>
+                    <option value="familiar">Familiar</option>
+                </select>
+            </div>
+
+            <div class="form__field">
+                <label for="modelo" class="form__label">¿Cuál es tu modelo de carro favorito?</label>
+                <input type="text" class="form__input" id="modelo" disabled>
+            </div>
+
+            <div class="form__field">
+                <label for="precio" class="form__label">¿Cuánto estarías dispuesto a pagar por un vehículo?</label>
+                <input type="range" class="form__input" id="precio" disabled>
+            </div>
         </div>
 
-        <div class="form__field">
-            <label for="marcas" class="form__label">Marca de carro favorita: </label>
-            <select disabled name="marcas" id="marcas" class="form__select">
-                <option value="" selected disabled>Seleccione una opción</option>
-                <option value="mazda">Mazda</option>
-                <option value="chevrolet">Chevrolet</option>
-                <option value="mercedes_benz">Mercedes Benz</option>
-                <option value="audi">Audi</option>
-                <option value="renault">Renault</option>
-            </select>
-        </div>
-
-        <div class="form__field">
-            <label for="estilo" class="form__label">Estilo favorito de carro: </label>
-            <select disabled name="estilo" id="estilo" class="form__select">
-                <option value="" selected disabled>Seleccione una opción</option>
-                <option value="deportivo">Deportivo</option>
-                <option value="descapotable">Descapotable</option>
-                <option value="todoterreno">Todoterreno</option>
-                <option value="cupe">Cupé</option>
-                <option value="familiar">Familiar</option>
-            </select>
-        </div>
-
-        <div class="form__field">
-            <label for="modelo" class="form__label">¿Cuál es tu modelo de carro favorito?</label>
-            <input type="text" class="form__input" id="modelo" disabled>
-        </div>
-
-        <div class="form__field">
-            <label for="precio" class="form__label">¿Cuánto estarías dispuesto a pagar por un vehículo?</label>
-            <input type="range" class="form__input" disabled>
-        </div>
-        
         <input type="submit" value="Registrarme" class="form__submit">
 
     </form>
