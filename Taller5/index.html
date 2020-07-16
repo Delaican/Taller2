@@ -118,11 +118,24 @@
 
             <div class="form__field">
                 <label for="precio" class="form__label">¿Cuánto estarías dispuesto a pagar por un vehículo?</label>
-                <input type="range" class="form__input" id="precio" disabled>
+                <div class="middle">
+                    <div class="multi-range-slider">
+                        <input disabled type="range" id="input-left" min="0" max="100000000" value="10000000">
+                        <input disabled type="range" id="input-right" min="0" max="100000000" value="50000000">
+                        <div class="slider">
+                            <div class="track"></div>
+                            <div class="range"></div>
+                            <div class="thumb left"></div>
+                            <div class="thumb right"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+        <div class="submit_container">
+            <input type="submit" value="Registrarme" class="form__submit">
+        </div>
 
-        <input type="submit" value="Registrarme" class="form__submit">
 
     </form>
     <script type="text/javascript" src="scripts.js"></script>
