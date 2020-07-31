@@ -1,39 +1,24 @@
-const afirmativo = document.getElementById('si');
-const negativo = document.getElementById('no');
-const selects = document.getElementsByClassName('form__select');
-const inputs = document.querySelectorAll(".gustos_personales input")
 var inputLeft = document.getElementById("input-left");
 var inputRight = document.getElementById("input-right");
-
 var thumbLeft = document.querySelector(".slider > .thumb.left");
 var thumbRight = document.querySelector(".slider > .thumb.right");
 var range = document.querySelector(".slider > .range");
 
+const form = document.getElementById('form');
+const campos_disabled = Array.from(document.querySelectorAll('.disabled'));
 
-
-afirmativo.addEventListener('click', () => {
-    for (i = 0; i <= inputs.length; i++) {
-        inputs[i].removeAttribute("disabled");
+form.addEventListener('click', (e) => {
+    if (e.target.value == 'si') {
+        for (i in campos_disabled) {
+            campos_disabled[i].removeAttribute('disabled');
+        }
     }
-});
-
-afirmativo.addEventListener('click', () => {
-    for (i = 0; i <= selects.length; i++) {
-        selects[i].removeAttribute("disabled");
+    if (e.target.value == 'no') {
+        for (i in campos_disabled) {
+            campos_disabled[i].setAttribute('disabled', "");
+        }
     }
-});
-
-negativo.addEventListener('click', () => {
-    for (i = 0; i <= inputs.length; i++) {
-        inputs[i].setAttribute("disabled", "");
-    }
-});
-
-negativo.addEventListener('click', () => {
-    for (j = 0; j <= selects.length; j++) {
-        selects[j].setAttribute("disabled", "");
-    }
-});
+})
 
 function validar25caracteres(valinput){
     var retorno = false;
