@@ -30,15 +30,20 @@ paises.addEventListener('change', (e) => {
 
         selectDptos.addEventListener('change', (e) => {
             const dptoselected = selectDptos.value;
+            let muni = [];
 
             for (i in dataJSON) {
                 if (dataJSON[i].departamento.toLowerCase() == dptoselected) {
-                    const option = document.createElement('OPTION');
-                    option.textContent = dataJSON[i].municipio;
-                    selectMun.appendChild(option);
+                    muni.push(dataJSON[i].municipio);
                 }
             }
-
+            muni.sort();
+            for (i of muni) {
+                const option = document.createElement('OPTION');
+                option.textContent = i;
+                selectMun.appendChild(option);
+            }
+            
             for (let i = 2; i < disableds.length; i++) {
                 disableds[i].classList.remove('disabled');
             }
