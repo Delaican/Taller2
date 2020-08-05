@@ -7,7 +7,6 @@ paises.addEventListener('change', (e) => {
     let xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://www.datos.gov.co/resource/xdk5-pm3f.json');
 
-
     xhr.addEventListener('load', (data) => {
         const dataJSON = JSON.parse(data.target.response);
 
@@ -43,12 +42,12 @@ paises.addEventListener('change', (e) => {
             for (let i = 2; i < disableds.length; i++) {
                 disableds[i].classList.remove('disabled');
             }
-            //Cargar el select con Materialize
+            //Cargar el select municipios con Materialize
             $(document).ready(function () {
                 $('select').formSelect();
             });
         })
-        //Cargar el select con Materialize
+        //Cargar el select departamentos con Materialize
         $(document).ready(function () {
             $('select').formSelect();
         });
