@@ -2,6 +2,7 @@ const suiche = document.getElementById('suiche');
 const suiche2 = document.getElementById('suiche2');
 const check2 = document.getElementById('check2');
 const ing = document.getElementById('ing');
+const vilgax = document.getElementById('vilgax');
 
 const disableds = Array.from(document.querySelectorAll('.disabled'));
 
@@ -78,6 +79,7 @@ function fecha(){
 
 suiche.addEventListener('click', (e) => {
     const disableds2 = Array.from(document.querySelectorAll('.disabled'));
+<<<<<<< HEAD
     if (disableds2.length == 0 || disableds.length == 0) {
         for (let i = 0; i < disableds2.length; i++) {
             disableds[i].classList.add('disabled');
@@ -90,12 +92,29 @@ suiche.addEventListener('click', (e) => {
     
     console.log(disableds2);
     
+=======
+    if (disableds2.length == 0) {
+        for (let i = 0; i < disableds.length; i++) {
+            disableds[i].classList.add('disabled');
+        }
+        vilgax.checked = false;
+    }else {
+        for (let i = 0; i < 4; i++) {
+            disableds[i].classList.toggle('disabled');
+        }
+    }
+    //console.log(disableds2);
+>>>>>>> 6c1a9b1a6ec0be3107ccef8063ab2a70a555f6b7
 });
 
 suiche2.addEventListener('click', (e) => {
     for (let i = 4; i < disableds.length; i++) {
         disableds[i].classList.toggle('disabled');
     }
+<<<<<<< HEAD
     const disableds2 = Array.from(document.querySelectorAll('.disabled'));
     console.log(disableds2);
 });
+=======
+});
+>>>>>>> 6c1a9b1a6ec0be3107ccef8063ab2a70a555f6b7
