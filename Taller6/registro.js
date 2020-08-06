@@ -79,20 +79,6 @@ function fecha(){
 
 suiche.addEventListener('click', (e) => {
     const disableds2 = Array.from(document.querySelectorAll('.disabled'));
-<<<<<<< HEAD
-    if (disableds2.length == 0 || disableds.length == 0) {
-        for (let i = 0; i < disableds2.length; i++) {
-            disableds[i].classList.add('disabled');
-            
-        }
-    }
-    for (let i = 0; i < 4; i++) {
-        disableds[i].classList.toggle('disabled');
-    }
-    
-    console.log(disableds2);
-    
-=======
     if (disableds2.length == 0) {
         for (let i = 0; i < disableds.length; i++) {
             disableds[i].classList.add('disabled');
@@ -104,7 +90,6 @@ suiche.addEventListener('click', (e) => {
         }
     }
     //console.log(disableds2);
->>>>>>> 6c1a9b1a6ec0be3107ccef8063ab2a70a555f6b7
 });
 
 suiche2.addEventListener('click', (e) => {
