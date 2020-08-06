@@ -68,7 +68,8 @@ function getAge() {
     if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
         age = age - 1;
     }
-    document.getElementById('edad').innerHTML = age;
+    document.getElementById('age').textContent= `Edad: ${age} año(s)`;
+    // document.getElementById('cumpleanos'). = `Tienes ${age} años`;
 };
 
 function fecha(){
@@ -96,10 +97,4 @@ suiche2.addEventListener('click', (e) => {
     for (let i = 4; i < disableds.length; i++) {
         disableds[i].classList.toggle('disabled');
     }
-<<<<<<< HEAD
-    const disableds2 = Array.from(document.querySelectorAll('.disabled'));
-    console.log(disableds2);
 });
-=======
-});
->>>>>>> 6c1a9b1a6ec0be3107ccef8063ab2a70a555f6b7
