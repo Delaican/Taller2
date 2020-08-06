@@ -61,3 +61,13 @@ buscador.addEventListener('keyup', (e) => {
           }
     }
 });
+
+// <!-- <script>
+// $("#check1").click(function () {
+//     $("#check2").show();
+// });
+// $("#check2").click(function () {
+//     $("#ing").show();
+// });
+// </script> -->
+

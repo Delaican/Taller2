@@ -1,3 +1,10 @@
+const suiche = document.getElementById('suiche');
+const suiche2 = document.getElementById('suiche2');
+const check2 = document.getElementById('check2');
+const ing = document.getElementById('ing');
+
+const disableds = Array.from(document.querySelectorAll('.disabled'));
+
 function validar25caracteres(valinput){
     var retorno = false;
     if (valinput == ""){
@@ -67,3 +74,33 @@ function fecha(){
     var fecha = document.getElementById('cumpleanos').value;
     return fecha;
 };
+
+
+suiche.addEventListener('click', (e) => {
+    for (let i = 0; i < 4; i++) {
+        disableds[i].classList.toggle('disabled');
+    }
+    const disableds2 = Array.from(document.querySelectorAll('.disabled'));
+    console.log(disableds2);
+    if (disableds2.length == 0) {
+        for (let i = 0; i < disableds.length; i++) {
+            disableds[i].classList.replace('', 'disabled');
+            disableds[i].classList.replace('disabled', 'disabled');
+        }
+    }
+});
+
+suiche2.addEventListener('click', (e) => {
+    for (let i = 4; i < disableds.length; i++) {
+        disableds[i].classList.toggle('disabled');
+    }
+
+    const disableds2 = Array.from(document.querySelectorAll('.disabled'));
+    console.log(disableds2);
+});
+
+// suiche.addEventListener('click', (e) => {
+//     for (i in disableds) {
+//         disableds[i].classList.remove('disabled');
+//     }
+// });

@@ -10,6 +10,7 @@
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="materialize/css/materialize.css" media="screen,projection" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Registro</title>
 </head>
 
@@ -54,32 +55,32 @@
                     </div>
                     <div class="input-field col s3 switch" id="check1">
                         <label>¿Ha sufrido enfermedades?<br>
-                            No
+                            <span>No</span>
                             <input type="checkbox">
-                            <span class="lever"></span>
+                            <span id="suiche" class="lever"></span>
+                            <span>Sí</span>
+                        </label>
+                    </div>
+                    <div class="input-field col s3 switch disabled" id="check2">
+                        <label class="disabled">¿Han sido contagiosas?<br>
+                            No
+                            <input class="disabled" type="checkbox">
+                            <span id="suiche2" class="lever disabled"></span>
                             Sí
                         </label>
                     </div>
-                    <div class="input-field col s3 switch" style="display: none" id="check2">
-                        <label>¿Han sido contagiosas?<br>
-                            No
-                            <input type="checkbox">
-                            <span class="lever"></span>
-                            Sí
-                        </label>
+                    <div class="input-field col s6 disabled" id="ing">
+                        <input class="disabled" type="text" id="enfer">
+                        <label class="disabled" for="enfer">Ingrese las enfermedades</label>
                     </div>
-                    <div class="input-field col s6" style="display: none" id="ing">
-                        <input type="text" id="enfer">
-                        <label for="enfer">Ingrese las enfermedades</label>
-                    </div>
-                    <script>
+                    <!-- <script>
                         $("#check1").click(function () {
                             $("#check2").show();
                         });
                         $("#check2").click(function () {
                             $("#ing").show();
                         });
-                    </script>
+                    </script> -->
                     <div class="input-field col s6">
                         <button class="btn-large" type="submit" onclick="return enviarFormulario()">Enviar</button>
                     </div>
