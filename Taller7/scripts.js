@@ -9,8 +9,8 @@ paises.addEventListener('change', (e) => {
 
     xhr.addEventListener('load', (data) => {
         const dataJSON = JSON.parse(data.target.response);
-
         let dptos = [];
+
         for (i in dataJSON) {
             dptos.push(dataJSON[i]['departamento']);
         }
@@ -30,6 +30,9 @@ paises.addEventListener('change', (e) => {
 
         selectDptos.addEventListener('change', (e) => {
             const dptoselected = selectDptos.value;
+
+            selectMun.length = 1;
+            console.log(selectMun);
             let muni = [];
 
             for (i in dataJSON) {
@@ -42,11 +45,13 @@ paises.addEventListener('change', (e) => {
                 const option = document.createElement('OPTION');
                 option.textContent = i;
                 selectMun.appendChild(option);
+                // console.dir(selectMun.options);
             }
-            
+
             for (let i = 2; i < disableds.length; i++) {
                 disableds[i].classList.remove('disabled');
             }
+
             //Cargar el select municipios con Materialize
             $(document).ready(function () {
                 $('select').formSelect();
