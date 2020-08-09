@@ -12,10 +12,6 @@ const suiche2 = document.getElementById('suiche2');
 const check2 = document.getElementById('check2');
 const ing = document.getElementById('ing');
 const vilgax = document.getElementById('vilgax');
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 const disableds = Array.from(document.querySelectorAll('.disabled'));
 
 function getAge() {
@@ -98,22 +94,14 @@ form.addEventListener('submit', () => {
     validarCampos();
 })
 
-<<<<<<< Updated upstream
 suiche.addEventListener('click', () => {
-=======
-suiche.addEventListener('click', (e) => {
->>>>>>> Stashed changes
     const disableds2 = Array.from(document.querySelectorAll('.disabled'));
     if (disableds2.length == 0) {
         for (let i = 0; i < disableds.length; i++) {
             disableds[i].classList.add('disabled');
         }
         vilgax.checked = false;
-<<<<<<< Updated upstream
     } else {
-=======
-    }else {
->>>>>>> Stashed changes
         for (let i = 0; i < 4; i++) {
             disableds[i].classList.toggle('disabled');
         }
@@ -125,8 +113,4 @@ suiche2.addEventListener('click', () => {
     for (let i = 4; i < disableds.length; i++) {
         disableds[i].classList.toggle('disabled');
     }
-<<<<<<< Updated upstream
 });
-=======
-});
->>>>>>> Stashed changes
