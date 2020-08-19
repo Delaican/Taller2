@@ -9,6 +9,7 @@ body {
 }
 .box {
    width: 50%;
+   margin: 0 auto;
 }
 .form {
    /* /* background-color: #F0F8FF; */
@@ -43,9 +44,11 @@ body {
 
 }
 .form__select {
-   position: absolute;
-   left: 80px;
-   border-radius: 10px;
+
+   width: 100%;
+   border: none;
+   background: none;
+   margin-bottom: 1rem;
 }
 
 .form__submit {
