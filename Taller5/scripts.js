@@ -1,137 +1,186 @@
-var inputLeft = document.getElementById("input-left");
-var inputRight = document.getElementById("input-right");
-var thumbLeft = document.querySelector(".slider > .thumb.left");
-var thumbRight = document.querySelector(".slider > .thumb.right");
-var range = document.querySelector(".slider > .range");
-
 const form = document.getElementById('form');
-const campos_disabled = Array.from(document.querySelectorAll('.disabled'));
+const name = document.getElementById('name');
+const surname = document.getElementById('surname');
+const address = document.getElementById('direccion');
+const ccusuario = document.getElementById('ccusuario');
+const pass = document.getElementById('clave');
+const valpass = document.getElementById('confirm_clave');
+const email = document.getElementById('email');
 
-form.addEventListener('click', (e) => {
-    if (e.target.value == 'si') {
-        for (i in campos_disabled) {
-            campos_disabled[i].removeAttribute('disabled');
-        }
-    }
-    if (e.target.value == 'no') {
-        for (i in campos_disabled) {
-            campos_disabled[i].setAttribute('disabled', "");
-        }
-    }
-})
+const botonSi = document.getElementById('boton_si');
+const botonNo = document.getElementById('boton_no');
+const gustos = Array.from(document.querySelectorAll('.gustos'));
 
-function validar25caracteres(valinput){
-    var retorno = false;
-    if (valinput == ""){
-        alert("Debe escribir un nombre y un apellido.");
-    } else if (valinput.length > 25) {
-        alert("El nombre y apellido debe tener como máximo 25 caracteres.");
-    } else {retorno = true;}
-    return retorno;
+const validarCampos = {
+  name: false,
+  surname: false,
+  address: false,
+  ccusuario: false,
+  pass: false,
+  valpass: false,
+  email: false,
 };
 
-function validarClave(valinput){
-    var retorno = false;
-    if (valinput == ""){
-        alert("Debe ingresar una contraseña.");
-    } else if (valinput.length < 15){
-        alert("La contraseña debe tener al menos 15 caracteres.");
-    } else if (valinput.length > 20){
-        alert("La contraseña debe tener máximo 20 caracteres.");
-    } else if (valinput.search(/[A-Z]/)<0){
-        alert("La contraseña debe tener al menos un caracter en mayúscula.");
-    } else if (valinput.search(/[0-9]/)<0){
-        alert("La contraseña debe tener al menos un número.");
-    } else if (valinput.search(/[#,%,/,&]/)<0){
-        alert("La contraseña debe contener al menos uno de los siguientes caracteres: #,%,/,&.");
-    } else {retorno = true};
-    return retorno;
+// Validar formulario.
+const validateForm = () => {
+  const formValues = Object.values(validarCampos);
+  const valid = formValues.findIndex((value) => value === false);
+  if (valid === -1) form.submit();
+  else alert('¡Formulario Inválido!');
 };
 
-function validarCampos() {
-    var retorno = false;
-    var nombre = document.getElementById("nombre");
-    retorno = validar25caracteres(nombre.value);
-    var apellido = document.getElementById("apellido");
-    retorno = validar25caracteres(apellido.value);
-    var direccion = document.getElementById("direccion").value.toLowerCase();
-    if(!(direccion.startsWith("cll"))&&!direccion.startsWith("cra")&&!(direccion.startsWith("av"))&&!(direccion.startsWith("anv"))&&!direccion.startsWith("trans")){
-        alert("la direccion debe comenzar con cll, cra, av, anv o trans.");
-    } else {retorno=true};
-    var username = document.getElementById("username").value;
-    if (username == ""){
-        alert("Debe ingresar un usuario.");
-    } else if (username.length < 10){
-        alert("El usuario debe tener al menos 10 caracteres.");
-    } else if (usuario.length > 20){
-        alert("El usuario debe tener máximo 20 caracteres.");
-    } else if (!(usuario.search(/[#,%,/,&]/)<0)){
-        alert("El usuario no puede contener caracteres especiales.");
-    } else {retorno=true};
-    var clave = document.getElementById("clave");
-    retorno = validarClave(clave.value);
-    var confirm_clave = document.getElementById("confirm_clave");
-    if(confirm_clave.value!=clave.value){alert("Las contraseñas deben coincidir.");};
-    var email = document.getElementById("email").value;
-    if (email==""){alert("Debe ingresar un correo.")}
-    else if(email.length > 120){alert("El correo debe tener máximo 120 caracteres.");};
-    return retorno;
-}
+// Prevenir el comportamiento por defector del formulario en el submit y llamar a validar.
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  validateForm();
+});
 
-function setLeftValue() {
-	var _this = inputLeft,
-		min = parseInt(_this.min),
-        max = parseInt(_this.max);
+const toggleDisabled = (valcampo, campo) => {
+  if (valcampo) campo.nextSibling.classList.add('disabled');
+  else campo.nextSibling.classList.remove('disabled');
+};
 
-    _this.value = Math.min(parseInt(_this.value), parseInt(inputRight.value) - 1);
-  
+const validateName = (nombre) => {
+  if (nombre.length < 0 || nombre.length > 25 || nombre === '') return false;
+  return true;
+};
 
-	var percent = ((_this.value - min) / (max - min)) * 100;
+const validateAddress = (dir) => {
+  const addressRegex = /^(cll|cra|av|anv|trans).+$/gi;
+  if (addressRegex.test(dir)) return true;
+  return false;
+};
 
-	thumbLeft.style.left = percent + "%";
-	range.style.left = percent + "%";
-}
+const validateUser = (usr) => {
+  const usernameRegex = /^[a-zA-Z0-9_-]{10,20}$/;
+  if (usernameRegex.test(usr)) return true;
+  return false;
+};
+
+const validatePassword = (pwd) => {
+  const passwordRegex = /(?=(.*[0-9]))((?=.*[A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z]))^.{15,20}$/;
+  if (passwordRegex.test(pwd)) return true;
+  return false;
+};
+
+const comparePasswords = (valpwd) => {
+  if (pass.value !== undefined) {
+    if (pass.value.trim() === valpwd) return true;
+  }
+  return false;
+};
+
+const validateEmail = (correo) => {
+  const emailRegex = /^(([^<>()\[\]\\.,:\s@']+(\.[^<>()\[\]\\.,:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (emailRegex.test(correo)) return true;
+  return false;
+};
+
+name.addEventListener('change', (e) => {
+  validarCampos.name = validateName(e.target.value.trim());
+  toggleDisabled(validarCampos.name, name);
+});
+
+surname.addEventListener('change', (e) => {
+  validarCampos.surname = validateName(e.target.value.trim());
+  toggleDisabled(validarCampos.surname, surname);
+});
+
+address.addEventListener('change', (e) => {
+  validarCampos.address = validateAddress(e.target.value.trim());
+  toggleDisabled(validarCampos.address, address);
+});
+
+ccusuario.addEventListener('change', (e) => {
+  validarCampos.ccusuario = validateUser(e.target.value.trim());
+  toggleDisabled(validarCampos.ccusuario, ccusuario);
+});
+
+pass.addEventListener('change', (e) => {
+  validarCampos.pass = validatePassword(e.target.value.trim());
+  toggleDisabled(validarCampos.pass, pass);
+});
+
+valpass.addEventListener('change', (e) => {
+  validarCampos.valpass = comparePasswords(e.target.value.trim());
+  toggleDisabled(validarCampos.valpass, valpass);
+});
+
+email.addEventListener('change', (e) => {
+  validarCampos.email = validateEmail(e.target.value.trim());
+  toggleDisabled(validarCampos.email, email);
+});
+
+// Gustos Personales
+
+botonSi.addEventListener('click', () => {
+  gustos.forEach((campo) => campo.removeAttribute('disabled'));
+});
+
+botonNo.addEventListener('click', () => {
+  gustos.forEach((campo) => campo.setAttribute('disabled', ''));
+});
+
+// Input range
+const inputLeft = document.getElementById('input-left');
+const inputRight = document.getElementById('input-right');
+const thumbLeft = document.querySelector('.slider > .thumb.left');
+const thumbRight = document.querySelector('.slider > .thumb.right');
+const range = document.querySelector('.slider > .range');
+
+const setLeftValue = () => {
+  const min = parseInt(inputLeft.min, 10);
+  const max = parseInt(inputLeft.max, 10);
+  inputLeft.value = Math.min(parseInt(inputLeft.value, 10), parseInt(inputRight.value, 10) - 1);
+
+  const percent = ((inputLeft.value - min) / (max - min)) * 100;
+  thumbLeft.style.left = `${percent}%`;
+  range.style.left = `${percent}%`;
+};
+
 setLeftValue();
 
-function setRightValue() {
-	var _this = inputRight,
-		min = parseInt(_this.min),
-		max = parseInt(_this.max);
+const setRightValue = () => {
+  const min = parseInt(inputRight.min, 10);
+  const max = parseInt(inputRight.max, 10);
+  inputRight.value = Math.max(parseInt(inputRight.value, 10), parseInt(inputLeft.value, 10) + 1);
 
-	_this.value = Math.max(parseInt(_this.value), parseInt(inputLeft.value) + 1);
+  const percent = ((inputRight.value - min) / (max - min)) * 100;
 
-	var percent = ((_this.value - min) / (max - min)) * 100;
+  thumbRight.style.right = `${100 - percent}%`;
+  range.style.right = `${100 - percent}%`;
+};
 
-	thumbRight.style.right = (100 - percent) + "%";
-	range.style.right = (100 - percent) + "%";
-}
 setRightValue();
 
-inputLeft.addEventListener("input", setLeftValue);
-inputRight.addEventListener("input", setRightValue);
+inputLeft.addEventListener('input', setLeftValue);
+inputRight.addEventListener('input', setRightValue);
 
-inputLeft.addEventListener("mouseover", function() {
-	thumbLeft.classList.add("hover");
-});
-inputLeft.addEventListener("mouseout", function() {
-	thumbLeft.classList.remove("hover");
-});
-inputLeft.addEventListener("mousedown", function() {
-	thumbLeft.classList.add("active");
-});
-inputLeft.addEventListener("mouseup", function() {
-	thumbLeft.classList.remove("active");
+inputLeft.addEventListener('mouseover', () => {
+  thumbLeft.classList.add('hover');
 });
 
-inputRight.addEventListener("mouseover", function() {
-	thumbRight.classList.add("hover");
+inputLeft.addEventListener('mouseout', () => {
+  thumbLeft.classList.remove('hover');
 });
-inputRight.addEventListener("mouseout", function() {
-	thumbRight.classList.remove("hover");
+
+inputLeft.addEventListener('mousedown', () => {
+  thumbLeft.classList.add('active');
 });
-inputRight.addEventListener("mousedown", function() {
-	thumbRight.classList.add("active");
+
+inputLeft.addEventListener('mouseup', () => {
+  thumbLeft.classList.remove('active');
 });
-inputRight.addEventListener("mouseup", function() {
-	thumbRight.classList.remove("active");
+
+inputRight.addEventListener('mouseover', () => {
+  thumbRight.classList.add('hover');
+});
+inputRight.addEventListener('mouseout', () => {
+  thumbRight.classList.remove('hover');
+});
+inputRight.addEventListener('mousedown', () => {
+  thumbRight.classList.add('active');
+});
+inputRight.addEventListener('mouseup', () => {
+  thumbRight.classList.remove('active');
 });

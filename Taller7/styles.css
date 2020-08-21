@@ -49,6 +49,10 @@
     margin-bottom: 1rem;
     
  }
+
+ .form__select {
+    display: none;
+ }
   
  .form__input {
     margin-bottom: 2rem;

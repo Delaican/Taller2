@@ -9,9 +9,9 @@
 </head>
 
 <body>
-    <h1 class="title">Validación con JavaScript</h1>
 
-    <form id="form" action="#" class="form" onsubmit="return validarCampos();">
+    <form id="form" action="#" class="form">
+        <h1 class="title">Validación con JavaScript</h1>
         <div class="form__field">
             <label for="id_usr" class="form__label">Id Usuario: </label>
             <input type="number" id="id_usr" class="form__input">
@@ -20,45 +20,52 @@
         <div class="form__field">
             <label for="id_pais" class="form__label">Id País: </label>
             <input type="number" id="id_pais" class="form__input">
-
         </div>
 
-        <div class="form__field">
-            <div class="row">
-                <div class="col-lg-6">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form__field">
                     <label for="nombre" class="form__label">Nombres: </label>
-                    <input type="text" id="nombre" class="form__input">
+                    <input type="text" id="name" class="form__input"><span class="disabled error-msg">¡Nombre incorrecto! El campo debe estar lleno y debe tener un máximo de 25 caracteres.</span>
                 </div>
-                <div class="col-lg-6">
+
+            </div>
+            <div class="col-lg-6">
+                <div class="form__field">
                     <label for="apellido" class="form__label">Apellidos: </label>
-                    <input type="text" id="apellido" class="form__input">
+                    <input type="text" id="surname" class="form__input"><span class="disabled error-msg">¡Apellido incorrecto! El campo debe estar lleno y debe tener un máximo de 25 caracteres.</span>
                 </div>
             </div>
         </div>
 
         <div class="form__field">
             <label for="direccion" class="form__label">Dirección: </label>
-            <input type="text" id="direccion" class="form__input">
+            <input type="text" id="direccion" class="form__input"><span class="disabled error-msg">¡Dirección incorrecta! Debe empezar por - cll, cra, av, anv, trans -</span>
         </div>
 
         <div class="form__field">
             <label for="username" class="form__label">Usuario: </label>
-            <input type="text" id="username" class="form__input">
+            <input type="text" id="ccusuario" class="form__input"><span class="disabled error-msg">¡Usuario incorrecto! El campo debe estar lleno y tener una longitud de entre 10 a 20 caracteres. No debe contener caracteres extraños.</span>
         </div>
 
-        <div class="form__field">
-            <label for="clave" class="form__label">Contraseña: </label>
-            <input type="password" id="clave" class="form__input">
-        </div>
-
-        <div class="form__field">
-            <label for="confirm_clave" class="form__label">Confirmar contraseña: </label>
-            <input type="password" id="confirm_clave" class="form__input">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form__field">
+                    <label for="clave" class="form__label">Contraseña: </label>
+                    <input type="password" id="clave" class="form__input"><span class="disabled error-msg">La contraseña debe tener mayúsculas, números, letras y/o [#, %, /, &]. Además debe tener una longitud de entre 15 y 20 caracteres.</span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form__field">
+                    <label for="confirm_clave" class="form__label">Confirmar contraseña: </label>
+                    <input type="password" id="confirm_clave" class="form__input"><span class="disabled error-msg">¡Las contraseñas no coinciden!</span>
+                </div>
+            </div>
         </div>
 
         <div class="form__field">
             <label for="email" class="form__label">Email: </label>
-            <input type="email" id="email" class="form__input">
+            <input type="email" id="email" class="form__input"><span class="disabled error-msg">!Email incorrecto!</span>
         </div>
 
         <div class="form__field">
@@ -71,57 +78,63 @@
             <div class="row">
                 <div class="col-lg-2">
                     <label for="si" class="form__label">Sí</label>
-                    <input type="radio" value="si" id="si" name="gustos">
+                    <input class="form__radio" type="radio" value="si" id="boton_si" name="gustos">
                 </div>
                 <div class="col-lg-2">
                     <label for="no" class="form__label">No</label>
-                    <input type="radio" value="no" id="no" name="gustos" checked>
+                    <input class="form__radio" type="radio" value="no" id="boton_no" name="gustos" checked>
                 </div>
             </div>
         </div>
 
-        <div class="gustos_personales">
+        <fieldset class="form__fieldset">
+            <legend class="legend">Gustos Personales</legend>
             <div class="form__field">
                 <label for="color" class="form__label">Color favorito: </label>
-                <input class="disabled form__input" type="color" id="color" disabled>
+                <input class="form__input gustos" type="color" id="color" disabled>
             </div>
 
-            <div class="form__field">
-                <label for="marcas" class="form__label">Marca de carro favorita: </label>
-                <select class="disabled form__select" disabled name="marcas" id="marcas">
-                    <option value="" selected disabled>Seleccione una opción</option>
-                    <option value="mazda">Mazda</option>
-                    <option value="chevrolet">Chevrolet</option>
-                    <option value="mercedes_benz">Mercedes Benz</option>
-                    <option value="audi">Audi</option>
-                    <option value="renault">Renault</option>
-                </select>
-            </div>
-
-            <div class="form__field">
-                <label for="estilo" class="form__label">Estilo favorito de carro: </label>
-                <select class="disabled form__select" disabled name="estilo" id="estilo">
-                    <option value="" selected disabled>Seleccione una opción</option>
-                    <option value="deportivo">Deportivo</option>
-                    <option value="descapotable">Descapotable</option>
-                    <option value="todoterreno">Todoterreno</option>
-                    <option value="cupe">Cupé</option>
-                    <option value="familiar">Familiar</option>
-                </select>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="form__field">
+                        <label for="marcas" class="form__label">Marca de carro favorita: </label>
+                        <select class="form__select gustos" disabled name="marcas" id="marcas">
+                            <option value="" selected disabled class="gustos">Seleccione una opción</option>
+                            <option value="mazda">Mazda</option>
+                            <option value="chevrolet">Chevrolet</option>
+                            <option value="mercedes_benz">Mercedes Benz</option>
+                            <option value="audi">Audi</option>
+                            <option value="renault">Renault</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form__field">
+                        <label for="estilo" class="form__label">Estilo favorito de carro: </label>
+                        <select class="form__select gustos" disabled name="estilo" id="estilo">
+                            <option value="" selected disabled class="gustos">Seleccione una opción</option>
+                            <option value="deportivo">Deportivo</option>
+                            <option value="descapotable">Descapotable</option>
+                            <option value="todoterreno">Todoterreno</option>
+                            <option value="cupe">Cupé</option>
+                            <option value="familiar">Familiar</option>
+                        </select>
+                    </div>
+                </div>
             </div>
 
             <div class="form__field">
                 <label for="modelo" class="form__label">¿Cuál es tu modelo de carro favorito?</label>
-                <input class="disabled form__input" type="text" id="modelo" disabled>
+                <input class="form__input gustos" type="text" id="modelo" disabled>
             </div>
 
             <div class="form__field">
                 <label class="form__label">¿Cuánto estarías dispuesto a pagar por un vehículo?</label>
                 <div class="middle">
                     <div class="multi-range-slider">
-                        <input class="disabled" disabled type="range" id="input-left" min="0" max="100000000"
+                        <input class="gustos" disabled type="range" id="input-left" min="0" max="100000000"
                             value="10000000">
-                        <input class="disabled" disabled type="range" id="input-right" min="0" max="100000000"
+                        <input class="gustos" disabled type="range" id="input-right" min="0" max="100000000"
                             value="50000000">
                         <div class="slider">
                             <div class="track"></div>
@@ -132,11 +145,13 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="submit_container">
+        </fieldset>
+
+
+        <div class="form__field">
             <input type="submit" value="Registrarme" class="form__submit">
         </div>
-
+        
     </form>
     <script src="scripts.js"></script>
 </body>
