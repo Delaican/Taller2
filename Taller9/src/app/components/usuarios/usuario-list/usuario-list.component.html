@@ -1,0 +1,50 @@
+<div class="card">
+  <div class="card-body">
+    <h3 class="text-center">
+      Lista de Usuarios
+    </h3>
+    <table class="table table-sm table-hover table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>DTD</th>
+          <th>Documento</th>
+          <th>Ciudad</th>
+          <th>Fecha Nacimiento</th>
+          <th>Email</th>
+          <th>Teléfono</th>
+          <th>User</th>
+          <th>Contraseña</th>
+          <th>
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let usuario of usuarioList">
+          <td>{{usuario.nombre}}</td>
+          <td>{{usuario.apellido}}</td>
+          <td>{{usuario.tipodoc}}</td>
+          <td>{{usuario.documento}}</td>
+          <td>{{usuario.ciudad}}</td>
+          <td>{{usuario.fechanac}}</td>
+          <td>{{usuario.email}}</td>
+          <td>{{usuario.telefono}}</td>
+          <td>{{usuario.username}}</td>
+          <td>{{usuario.password}}</td>
+          <td>
+            <a class="btn btn-secondary text-white" (click)="onEdit(usuario)">
+                <i class="far fa-edit"></i>
+            </a>
+          </td>
+          <td>
+            <a class="btn btn-danger text-white" (click)="onDelete(usuario.$key)">
+                <i class="fas fa-trash-alt"></i>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
